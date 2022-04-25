@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+const checkoutWithNume = require('nume-pay');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const handleSubmit = async () => {
+		const payload = {
+			merchantId: 4,
+			referenceId: 'ref',
+			amountUsd: 20.5,
+			products: [
+				{
+					skuId: 'he',
+					count: 4,
+				},
+			],
+		};
+		const god = await checkoutWithNume(payload);
+		console.log(god);
+	};
+	return (
+		<div className="App">
+			<button onClick={handleSubmit}> Pay with nume</button>
+		</div>
+	);
+};
 
 export default App;

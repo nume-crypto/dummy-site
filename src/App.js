@@ -1,5 +1,5 @@
 import React from 'react';
-const checkoutWithNume = require('nume-pay');
+const checkoutWithNume = require('nume-pay-test');
 
 const App = () => {
 	const handleSubmit = async () => {

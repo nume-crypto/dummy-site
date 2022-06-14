@@ -1,10 +1,14 @@
 import React from 'react';
-const checkoutWithNume = require('nume-pay-test');
+const { authorize, checkoutWithNume } = require('nume-pay-test');
 
 const App = () => {
 	const handleSubmit = async () => {
+		let accessToken = await authorize(
+			process.env.REACT_APP_NUME_CLIENT_ID,
+			process.env.REACT_APP_NUME_CLIENT_SECRET
+		);
 		const payload = {
-			merchantId: 4,
+			accessToken: accessToken,
 			referenceId: 'ref',
 			amountUsd: 20.5,
 			products: [

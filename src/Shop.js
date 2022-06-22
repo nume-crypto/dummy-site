@@ -6,7 +6,7 @@ import Book3 from './assets/book3.png';
 import Book4 from './assets/book4.png';
 
 const Shop = () => {
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 	return (
 		<div className="App" style={{ textAlign: 'center' }}>
 			<div style={{ padding: '8px', backgroundColor: '#F3F3F3' }}>
@@ -21,28 +21,48 @@ const Shop = () => {
 					gridGap: '40px',
 				}}>
 				<div style={{ height: '325px' }}>
-					<img src={Book1} alt="book1" style={{ height: '250px', cursor:'pointer' }} onClick={()=>navigate('/item')} />
+					<img
+						src={Book1}
+						alt="book1"
+						style={{ height: '250px', cursor: 'pointer' }}
+						onClick={() => navigate('/item')}
+					/>
 					<p>Deep Work: Rules for Focused Sucess...</p>
 					<p>
 						<b>$20.50</b>
 					</p>
 				</div>
 				<div style={{ height: '325px' }}>
-					<img src={Book2} alt="book2" style={{ height: '250px', cursor:'pointer' }} onClick={()=>navigate('/item')} />
+					<img
+						src={Book2}
+						alt="book2"
+						style={{ height: '250px', cursor: 'pointer' }}
+						onClick={() => navigate('/item')}
+					/>
 					<p>Deep Work: Rules for Focused Sucess...</p>
 					<p>
 						<b>$20.50</b>
 					</p>
 				</div>
 				<div style={{ height: '325px' }}>
-					<img src={Book3} alt="book3" style={{ height: '250px', cursor:'pointer' }} onClick={()=>navigate('/item')} />
+					<img
+						src={Book3}
+						alt="book3"
+						style={{ height: '250px', cursor: 'pointer' }}
+						onClick={() => navigate('/item')}
+					/>
 					<p>Deep Work: Rules for Focused Sucess...</p>
 					<p>
 						<b>$20.50</b>
 					</p>
 				</div>
 				<div style={{ height: '325px' }}>
-					<img src={Book4} alt="book4" style={{ height: '250px', cursor:'pointer' }} onClick={()=>navigate('/item')} />
+					<img
+						src={Book4}
+						alt="book4"
+						style={{ height: '250px', cursor: 'pointer' }}
+						onClick={() => navigate('/item')}
+					/>
 					<p>Deep Work: Rules for Focused Sucess...</p>
 					<p>
 						<b>$20.50</b>

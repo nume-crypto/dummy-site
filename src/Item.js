@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './assets/nume_btn.png';
 import Book1 from './assets/book1.png';
 import Paypal from './assets/paypal_btn.png';
-const { authorize, checkoutWithNume } = require('nume-pay-test');
+const { authorize, checkoutWithNume } = require('nume-pay');
 
 const App = () => {
 	const handleSubmit = async () => {

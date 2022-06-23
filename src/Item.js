@@ -6,6 +6,8 @@ const { authorize, checkoutWithNume } = require('nume-pay');
 
 const App = () => {
 	const handleSubmit = async () => {
+        console.log(process.env.REACT_APP_NUME_CLIENT_ID,
+            process.env.REACT_APP_NUME_CLIENT_SECRET)
 		let accessToken = await authorize(
 			process.env.REACT_APP_NUME_CLIENT_ID,
 			process.env.REACT_APP_NUME_CLIENT_SECRET

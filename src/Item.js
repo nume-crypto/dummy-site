@@ -23,6 +23,9 @@ const App = () => {
 		};
 		const god = await checkoutWithNume(payload);
 		console.log(god);
+		if (god.orderStatus === 'APPROVED') {
+			window.location.href = 'success';
+		}
 	};
 	return (
 		<div className="App" style={{ textAlign: 'center' }}>
@@ -35,7 +38,7 @@ const App = () => {
 				</div>
 				<div style={{ padding: '10px', width: '60%', textAlign: 'left' }}>
 					<h1 style={{ fontWeight: 700 }}>So Good They Can’t Ignore You</h1>
-					<h4 style={{ fontWeight: 700 }}>$32.99</h4>
+					<h4 style={{ fontWeight: 700 }}>$20.5</h4>
 					<p>
 						In this eye-opening account, Cal Newport debunks the long-held belief that "follow your passion"
 						is good advice. Not only is the cliché flawed-preexisting passions are rare and have little to

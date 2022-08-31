@@ -1,59 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Logo from './assets/nume_btn.png';
 import Paypal from './assets/paypal_btn.png';
-const { authorize, checkoutWithNume } = require('nume-pay');
+import 'nume-pay-uat/index.css'
+const { checkoutWithNume, renderBtn } = require('nume-pay');
 
 const App = () => {
+    const myRef = useRef();
     const [matches, setMatches] = useState(window.matchMedia('(min-width: 768px)').matches);
-    const [isLoading, setIsLoading] = useState(true);
-    const [accessToken, setAccessToken] = useState('');
     useEffect(() => {
         window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => setMatches(e.matches));
     }, []);
+
     useEffect(() => {
-        const fetchAccessToken = async () => {
-            let accessToken = await authorize(
-                process.env.REACT_APP_NUME_CLIENT_ID,
-                process.env.REACT_APP_NUME_CLIENT_SECRET
-            );
-            setAccessToken(accessToken);
-            setIsLoading(false);
-        };
-        fetchAccessToken();
+        if (myRef.current) {
+            renderBtn('#' + myRef.current.id, { full: true, onSubmit: handleSubmit })
+        }
     }, []);
 
     const { state } = useLocation();
-    const handleSubmit = async () => {
+    const handleSubmit = () => {
         const payload = {
-            accessToken: accessToken,
             referenceId: 'ref',
-            amountUsd: 20.5,
+            amountUsd: 1.5,
             products: [
                 {
                     skuId: 'he',
                     count: 4,
                 },
             ],
+            clientId: process.env.REACT_APP_NUME_CLIENT_ID,
+            clientSecret: process.env.REACT_APP_NUME_CLIENT_SECRET
         };
-        checkoutWithNume(payload)
-            .then((res) => {
-                console.log(res);
-                if (res.orderStatus === 'APPROVED') {
-                    window.location.href = 'success';
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        checkoutWithNume(payload).then((res) => {
+            console.log(res, "hey");
+            if (res.orderStatus === 'APPROVED') {
+                window.location.href = 'success';
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
     };
-    if (isLoading) {
-        return (
-            <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center' }}>
-                Loading...
-            </div>
-        );
-    }
+
     return (
         <div className="App" style={{ textAlign: 'center' }}>
             <div style={{ padding: '8px', backgroundColor: '#F3F3F3' }}>
@@ -86,18 +73,9 @@ const App = () => {
                         satisfaction from their work, Newport uncovers the strategies they used and the pitfalls they
                         avoided in developing their compelling careers.
                     </p>
-                    <img
-                        style={{
-                            width: '300px',
-                            cursor: 'pointer',
-                            display: 'block',
-                            marginBottom: '8px',
-                            marginTop: '40px',
-                        }}
-                        src={Logo}
-                        alt="nume"
-                        onClick={handleSubmit}
-                    />
+                    <div id="a" ref={myRef}>
+
+                    </div>
                     <img
                         style={{
                             marginLeft: '-4px',

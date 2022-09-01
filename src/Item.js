@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Paypal from './assets/paypal_btn.png';
 import 'nume-pay-uat/index.css'
-const { checkoutWithNume, renderBtn } = require('nume-pay');
+const { checkoutWithNume, renderBtn } = require('nume-pay-uat')
 
 const App = () => {
     const myRef = useRef();
@@ -13,7 +13,7 @@ const App = () => {
 
     useEffect(() => {
         if (myRef.current) {
-            renderBtn('#' + myRef.current.id, { full: true, onSubmit: handleSubmit })
+            renderBtn('#' + myRef.current.id, { full: true, onSubmit: handleSubmit, helperText: true })
         }
     }, []);
 
@@ -21,7 +21,7 @@ const App = () => {
     const handleSubmit = () => {
         const payload = {
             referenceId: 'ref',
-            amountUsd: 1.5,
+            amountUsd: 20.5,
             products: [
                 {
                     skuId: 'he',
@@ -58,8 +58,7 @@ const App = () => {
                     <img style={{ maxWidth: '350px', width: '90%' }} src={state.img} alt={state.name} />
                 </div>
                 <div style={{ padding: '10px', width: matches ? '60%' : 'auto', textAlign: 'left' }}>
-                    <h1 style={{ fontWeight: 700 }}>{state.nmame}</h1>
-                    <h4 style={{ fontWeight: 700 }}>${state.price}</h4>
+                    <h1 style={{ fontWeight: 700 }}>{state.name}</h1>
                     <p>
                         In this eye-opening account, Cal Newport debunks the long-held belief that "follow your passion"
                         is good advice. Not only is the cliché flawed-preexisting passions are rare and have little to
@@ -73,14 +72,17 @@ const App = () => {
                         satisfaction from their work, Newport uncovers the strategies they used and the pitfalls they
                         avoided in developing their compelling careers.
                     </p>
-                    <div id="a" ref={myRef}>
-
+                    <h4 style={{ fontWeight: 700, margin: '16px 0' }}>${state.price}</h4>
+                    {/* <div style={{ height: '600px' }}></div> */}
+                    <div id="a" ref={myRef} style={{ margin: '8px 0' }}>
                     </div>
+                    {/* <div style={{ height: '600px' }}></div> */}
                     <img
                         style={{
                             marginLeft: '-4px',
-                            width: '310px',
+                            width: '213px',
                             cursor: 'pointer',
+                            height: '44px'
                         }}
                         src={Paypal}
                         alt="paypal"

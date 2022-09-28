@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Paypal from './assets/paypal_btn.png';
-import 'nume-pay-uat/index.css'
-const { checkoutWithNume, renderBtn } = require('nume-pay-uat')
+import 'nume-pay/index.css'
+const { checkoutWithNume, renderBtn } = require('nume-pay')
 
 const App = () => {
     const myRef = useRef();

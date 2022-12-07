@@ -32,7 +32,7 @@ const Shop = () => {
 	return (
 		<div className="App" style={{ textAlign: 'center' }}>
 			<div style={{ padding: '8px', backgroundColor: '#F3F3F3' }}>
-				<h3 style={{ fontSize: '20px', fontWeight: 700 }}>Second hand E-Books</h3>
+				<h3 style={{ fontSize: '20px', fontWeight: 700 }}> {process.env.REACT_APP_NAME}'s Second hand E-Books</h3>
 			</div>
 			<div
 				style={{

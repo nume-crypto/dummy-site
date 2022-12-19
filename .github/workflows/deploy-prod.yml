@@ -20,8 +20,8 @@ jobs:
           node-version: 18.x
       - run: npm install
       - run: |
-          chmod +x ./scripts/PROD.sh
-          ./scripts/PROD.sh
+          chmod +x ./scripts/prod.sh
+          ./scripts/prod.sh
       - run: npm run build
       - name: Deploy to netlify
         uses: netlify/actions/cli@master

@@ -9,22 +9,22 @@ const Shop = () => {
 	const books = [
 		{
 			name: 'So Good They Can’t Ignore You',
-			price: '20.50',
+			price: '0.25',
 			img: Book1,
 		},
 		{
 			name: 'Outliers',
-			price: '20.50',
+			price: '0.25',
 			img: Book2,
 		},
 		{
 			name: 'The Mom Test',
-			price: '20.50',
+			price: '0.25',
 			img: Book3,
 		},
 		{
 			name: 'Deep Work: Rules for Focused Sucess',
-			price: '20.50',
+			price: '0.25',
 			img: Book4,
 		},
 	];

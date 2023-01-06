@@ -15,13 +15,14 @@ const App = () => {
         if (myRef.current) {
             renderBtn('#' + myRef.current.id, { full: true, onSubmit: handleSubmit, helperText: true })
         }
+    //eslint-disable-next-line
     }, []);
 
     const { state } = useLocation();
     const handleSubmit = () => {
         const payload = {
             referenceId: 'ref',
-            amountUsd: 20.5,
+            amountUsd: parseFloat(state.price),
             products: [
                 {
                     skuId: 'he',

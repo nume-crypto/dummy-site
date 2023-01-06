@@ -25,10 +25,7 @@ const Success = () => {
 			<div style={{ background: '#a8deed', width: '600px', padding: 24, borderRadius: 8 }}>
 				<h1>Thank you for your purchase!</h1>
 				<img style={{ maxWidth: '100px', width: 'auto' }} src={Book1} alt="book1" />
-				<p>So Good They Can’t Ignore You</p>
-				<p>
-					<b>$20.50</b>
-				</p>
+				<p>So Good They Can't Ignore You</p>
 				<button
 					onClick={() => window.location.replace('/')}
 					style={{
